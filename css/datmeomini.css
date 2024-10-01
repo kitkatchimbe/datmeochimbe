@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Fredoka", sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+body {
+    min-height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img-vid/hah.png');
+    background-size: 50%;
+    
+}
+
+/*  animation cua box va css cua box
+ */
+
+.box {
+    width: 120%;
+    height: 60vh;
+    background: #1c1c1c;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+}
+
+
+.box::before {
+    filter: blur(1.5em);
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.box::after, .box::before {
+    content: '';
+    position: absolute;
+    --angle: 0deg;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    padding: 4px;
+    border-radius: 10px;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095);
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+.box img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+
+.img {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img1 {
+    height: 210px;
+    width: 210px;
+    background-image: conic-gradient(#ff4545, #00ff99, #006aff, #ff0095);
+    border-radius: 50%;
+    animation: rorate 10s linear infinite;
+}
+
+@keyframes rorate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    border-top: 5px solid #282828;
+}
+
+.text span:nth-child(1) {
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+/*  phan title
+ */
+.title {
+    font-size: 3em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.play-audio {
+    padding-top: 20px;
+    width: 110%;
+    height: 100px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #1c1c1c;
+}
+
+#progress {
+    -webkit-appearance: none;
+    width: 85%;
+    height: 6px;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 4px 0;
+}
+
+#progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #000;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 5px solid #00ff99;
+    box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls svg {
+    width: 15px;
+}
+
+.controls div {
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #1c1c1c;
+    box-shadow: 0 10px 20px rgba(255, 26, 26, 0.22);
+    cursor: pointer;
+}
