@@ -142,6 +142,11 @@ body {
     background: #1c1c1c;
 }
 
+.play-audio video {
+    height: 0;
+    width: 0;
+}
+
 #progress {
     -webkit-appearance: none;
     width: 85%;
